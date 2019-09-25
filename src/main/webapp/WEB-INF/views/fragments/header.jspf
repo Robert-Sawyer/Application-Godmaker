@@ -1,0 +1,97 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<nav class="navbar navbar-expand-lg navbar-blue navbar-dark fixed-top">
+
+    <div class="container">
+
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+
+                    <a class="navbar-brand" href="/"><img class="thumbnail img-responsive" src="/resources/logo.png" alt="logo" width="120" height="120" ></a>
+                </li>
+            </ul>
+
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                    <a class="navbar-brand js-scroll-trigger" href="/">Zdobądź Boską fortunę!</a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+
+                            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+
+                        <span class="navbar-toggler-icon"></span>
+
+                    </button>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                <li class="nav-item active">
+
+                    <a class="nav-link" href="/users/details">Twoje dane</a>
+
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="/leagues/all2">Obstaw mecz</a>
+
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="/leagues/all2">Zobacz ligi</a>
+
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" href="/matches/all">Zobacz wszystkie mecze</a>
+
+                </li>
+            </ul>
+
+            </ul>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <sec:authorize access="!isAuthenticated()">
+                    <form class="form-inline my-2 my-lg-0" method="get" action="/users/add">
+                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Zarejestruj</button>
+                    </form>
+                </sec:authorize>
+            </ul>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li>
+                <sec:authorize access="isAuthenticated()">
+                    <form class="form-inline my-2 my-lg-0" method="get" action="/logout">
+                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Wyloguj</button>
+                    </form>
+                </sec:authorize>
+                </li>
+            <li>
+                <sec:authorize access="!isAuthenticated()">
+                    <form class="form-inline my-2 my-lg-0" method="get" action="/login">
+                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Zaloguj</button>
+                    </form>
+                </sec:authorize>
+            </li>
+            </ul>
+
+
+        </div>
+
+    </div>
+
+</nav>
