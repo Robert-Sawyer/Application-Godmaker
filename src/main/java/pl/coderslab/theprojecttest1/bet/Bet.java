@@ -21,7 +21,7 @@ public class Bet {
     @Min(1)
     private Double cashDeposit;
 
-    @ManyToOne(fetch = FetchType.EAGER)//niebezpieczne
+    @ManyToOne
     private User user;
 
     @NotNull
@@ -32,6 +32,17 @@ public class Bet {
     @Range(min = 0, max = 2)
     private Integer kindOfBet;
     //0 gosp 1 remis 2 goscie
+
+
+    private Double gain;
+
+    public Double getGain() {
+        return gain;
+    }
+
+    public void setGain(Double gain) {
+        this.gain = gain;
+    }
 
     public Long getId() {
         return id;

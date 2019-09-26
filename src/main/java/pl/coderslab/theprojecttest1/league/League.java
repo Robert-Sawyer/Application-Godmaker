@@ -25,6 +25,7 @@ public class League {
 
     //możliwa jeszcze lista zespołów
 
+
     public Long getId() {
         return id;
     }

@@ -21,19 +21,25 @@ public class RoundController {
     @Autowired
     private LeagueService leagueService;
 
-    @GetMapping(value = "/add")
-    public String addRound(Model model) {
-        model.addAttribute("round", new Round());
+    @GetMapping(value = "/add/{id}")
+    public String addRound(Model model, @PathVariable Long id) {
+
+        Round round = new Round();
+
+        round.setLeague(leagueService.findLeagueById(id));
+
+        model.addAttribute("round", round);
+
         return "round";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add/{id}")
     public String addRound(@Valid Round round, BindingResult result) {
         if (result.hasErrors()) {
             return "round";
         }
         roundService.saveRound(round);
-        return "redirect:/rounds/all";
+        return "redirect:/rounds/check/" + round.getLeague().getId();
     }
 
     @GetMapping(value = "/all")
@@ -68,5 +74,16 @@ public class RoundController {
     @ModelAttribute("leagues")
     public List<League> getLeagues() {
         return leagueService.getAllLeagues();
+    }
+
+    @GetMapping("/check/{id}")
+    public String checkRoundInLeague(@PathVariable Long id, Model model) {
+        List<Round> rounds = roundService.getByLeagueId(id);
+        model.addAttribute("rounds", rounds);
+        String name = leagueService.findLeagueById(id).getName();
+        model.addAttribute("num", name);
+        model.addAttribute("x", id);
+        model.addAttribute("lig", leagueService.findLeagueById(id));
+        return "roundbyleague";
     }
 }

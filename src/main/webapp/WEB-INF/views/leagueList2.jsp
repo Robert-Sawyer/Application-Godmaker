@@ -32,20 +32,60 @@
 <br>
 <br>
 <div class="container">
+
+    <div class="card">
+        <div class="card-body">
+            <p>Ligi</p>
+        </div>
+    </div>
+
+
 <div class="card mt-4">
     <div class="card-body">
         <table class="table table-hover">
     <tr>
         <th>Nazwa</th>
-        <th colspan="1">Akcje</th>
+        <th colspan="1">Kolejki</th>
     </tr>
             <c:forEach items="${leagues}" var="league">
                 <tr>
                     <td>${league.name}</td>
-                    <td><a href="/rounds/check/${league.id}">Zobacz kolejki</a></td>
+
+
+                    <td><c:if test="${league.id == 1}">
+                        <img src="/resources/pol.png" alt="logo" width="120" height="120" >
+                    </c:if></td>
+
+
+                    <td><c:if test="${league.id == 2}">
+                        <img src="/resources/ang.jpeg" alt="logo" width="120" height="120" >
+                    </c:if></td>
+
+
+                    <td><c:if test="${league.id == 3}">
+                        <img src="/resources/esp.png" alt="logo" width="120" height="120" >
+                    </c:if></td>
+
+                    <td><c:if test="${league.id == 4}">
+                        <img src="/resources/ita.jpeg" alt="logo" width="120" height="120" >
+                    </c:if></td>
+
+                    <td><c:if test="${league.id == 5}">
+                        <img src="/resources/fra.jpeg" alt="logo" width="120" height="120" >
+                    </c:if></td>
+
+
+
+
+
+                    <td><a href="/rounds/check/${league.id}">Sprawdź!</a></td>
 
                 </tr>
+
+
+
             </c:forEach>
+
 </table>
     </div>
 </div>

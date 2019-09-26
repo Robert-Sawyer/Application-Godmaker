@@ -29,19 +29,36 @@
 
 
 
+    <div class="card">
+        <div class="card-body">
+            <p>${bet.match.homeTeam} vs. ${bet.match.awayTeam}</p>
+        </div>
+    </div>
+
+
+
+
+
     <div class="card mt-4">
         <div class="card-body">
 
-            <form:form method="post" modelAttribute="round">
+            <form:form method="post" modelAttribute="bet">
 
-                <form:hidden path="league.id" value="${league.id}"/>
+                <form:hidden path="match.id" value="${bet.match.id}"/>
+                <form:hidden path="gain" value="${bet.gain}"/>
 
                 <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="numId">Numer kolejki</label>
-                        <form:input path="number" type="number" min="1" class="form-control" id="numId"/>
-                        <form:errors path="number" element="div" cssClass="error"/>
+                        <label for="cashId">Ile postawić pieniędzy?</label>
+                        <form:input path="cashDeposit" type="number" step="0.01" min="1" class="form-control" id="cashId"/>
+                        <form:errors path="cashDeposit" element="div" cssClass="error"/>
                     </div>
+                    <div class="form-group col-md-6">
+                        <label for="kindId">Rodzaj obstawienia - 0 gospodarze, 1 remis, 2 goście:</label>
+                        <form:input path="kindOfBet" type="number" min="0" max="2" class="form-control" id="kindId"/>
+                        <form:errors path="kindOfBet" element="div" cssClass="error"/>
+                    </div>
+
 
                 </div>
 
@@ -49,9 +66,6 @@
             </form:form>
         </div>
     </div>
-
-
-
 </div>
 
 </body>

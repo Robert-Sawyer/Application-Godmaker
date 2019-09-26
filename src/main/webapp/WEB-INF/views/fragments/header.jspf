@@ -48,7 +48,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="/leagues/all2">Zobacz ligi</a>
+                    <a class="nav-link" href="/bets/checkown">Twoje zakłady</a>
 
                 </li>
             </ul>

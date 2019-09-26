@@ -25,14 +25,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/forlogged").authenticated()
-                .antMatchers("/foradmin").hasRole("ADMIN") //można dać więcej role'i
-                .antMatchers("/leagues/**").hasRole("ADMIN")
-                .antMatchers("/rounds/**").hasRole("ADMIN")
-                .antMatchers("/matches/**").hasRole("ADMIN")
+                .antMatchers("/users/**").authenticated() //można dać więcej role'i
+                .antMatchers("/leagues/**").authenticated()
+                .antMatchers("/rounds/**").authenticated()
+                .antMatchers("/matches/**").authenticated()
+                .antMatchers("/dashboard").authenticated()
                 .anyRequest().permitAll() //nadmiarowe ale ogólnie jeśli adres nie został opisany to daje mu globalny dostęp
                 .and().formLogin()
-                .loginPage("/login").defaultSuccessUrl("/")
+                .loginPage("/login").defaultSuccessUrl("/dashboard")
                 .and().logout().logoutSuccessUrl("/")
                 .permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403");

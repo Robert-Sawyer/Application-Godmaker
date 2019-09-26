@@ -28,4 +28,8 @@ public class RoundService {
     public Round findRoundById(Long id) {
         return roundRepository.findById(id).orElse(null);
     }
+
+    public List<Round> getByLeagueId(Long id) {
+        return roundRepository.findAllByLeagueId(id);
+    }
 }

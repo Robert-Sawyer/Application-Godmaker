@@ -53,18 +53,25 @@ public class MatchService {
                 if (match.getHomeGoals() > match.getAwayGoals()) {
                     user.setCredit(userCash + (bet.getCashDeposit() * match.getHomeCourse()));
                     userRepository.save(user);
+
+                    bet.setGain(bet.getCashDeposit() * match.getHomeCourse() - bet.getCashDeposit());
                 }
             } else if (bet.getKindOfBet() == 1) {
                 if (match.getHomeGoals() == match.getAwayGoals()) {
                     user.setCredit(userCash + (bet.getCashDeposit() * match.getDrawCourse()));
                     userRepository.save(user);
+
+                    bet.setGain(bet.getCashDeposit() * match.getDrawCourse() - bet.getCashDeposit());
                 }
             } else {
                 if (match.getHomeGoals() < match.getAwayGoals()) {
                     user.setCredit(userCash + (bet.getCashDeposit() * match.getAwayCourse()));
                     userRepository.save(user);
+
+                    bet.setGain(bet.getCashDeposit() * match.getAwayCourse() - bet.getCashDeposit());
                 }
             }
+
         });
 
         matchRepository.save(match);
@@ -80,5 +87,9 @@ public class MatchService {
 
     public Match findMatchById(Long id) {
         return matchRepository.findById(id).orElse(null);
+    }
+
+    public List<Match> findMatchByRound(Long id) {
+        return matchRepository.findAllByRoundId(id);
     }
 }

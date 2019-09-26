@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.theprojecttest1.league.LeagueService;
 import pl.coderslab.theprojecttest1.round.Round;
 import pl.coderslab.theprojecttest1.round.RoundService;
 
@@ -27,14 +28,18 @@ public class MatchController {
     @Autowired
     private RoundService roundService;
 
-    @GetMapping(value = "/add")
-    public String addMatch(Model model) {
+    @GetMapping(value = "/add/{id}")
+    public String addMatch(Model model, @PathVariable Long id) {
 
-        model.addAttribute("match", new Match());
+        Match match = new Match();
+
+        match.setRound(roundService.findRoundById(id));
+
+        model.addAttribute("match", match);
         return "match";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add/{id}")
     public String addMatch(@Valid Match match, BindingResult result) {
 
         ///////przeniesienie do servisu np//////////
@@ -71,7 +76,7 @@ public class MatchController {
         }
 
         matchService.saveMatch(match);
-        return "redirect:/matches/all";
+        return "redirect:/matches/check/" + match.getRound().getId();
     }
 
     @GetMapping(value = "/all")
@@ -154,5 +159,22 @@ public class MatchController {
         }
         matchService.saveMatchUp(match);
         return "redirect:/matches/all";
+    }
+
+
+    @Autowired
+    private LeagueService leagueService;
+
+    @GetMapping("/check/{id}")
+    public String checkMatchByRound(@PathVariable Long id, Model model) {
+        List<Match> matches = matchService.findMatchByRound(id);
+        String round = roundService.findRoundById(id).getNumber().toString();
+        String league = leagueService.findLeagueById(roundService.findRoundById(id).getLeague().getId()).getName();
+        model.addAttribute("matches", matches);
+        model.addAttribute("round", round);
+        model.addAttribute("league", league);
+
+        model.addAttribute("rI", id);
+        return "matchbyround";
     }
 }

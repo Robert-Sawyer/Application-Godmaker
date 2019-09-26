@@ -115,4 +115,79 @@ public class BetController {
     public List<Match> getMatches() {
         return matchService.getAllMatches();
     }
+
+
+
+
+
+
+
+
+
+
+
+    @GetMapping("/do/{id}")
+    public String doBet(@PathVariable Long id, Model model) {
+
+        Match match = matchService.findMatchById(id);
+
+        Date dateNow = new Date();
+
+        Calendar dateAll = Calendar.getInstance();
+        dateAll.setTime(match.getStartDate());
+
+        Calendar time = Calendar.getInstance();
+        time.setTime(match.getStartTime());
+
+        dateAll.set(Calendar.HOUR_OF_DAY, time.get(Calendar.HOUR_OF_DAY));
+        dateAll.set(Calendar.MINUTE, time.get(Calendar.MINUTE));
+        dateAll.set(Calendar.SECOND, time.get(Calendar.SECOND));
+
+        Date dateMatch = dateAll.getTime();
+
+        if (dateNow.after(dateMatch)) {
+            return "wrongHour";
+        }
+
+
+        //model.addAttribute("matchyy", match);
+
+        Bet bet = new Bet();
+        bet.setMatch(match);
+        bet.setGain(0d);
+
+        model.addAttribute("bet", bet);
+
+
+        return "dobet";
+    }
+
+    @PostMapping("/do/{id}")
+    public String doBet(@Valid Bet bet, @AuthenticationPrincipal CurrentUser customUser, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "dobet";
+        }
+
+        if (bet.getCashDeposit() > customUser.getUser().getCredit()) {
+            return "notEnoughCash";
+        }
+
+
+
+        bet.setUser(customUser.getUser());
+
+        betService.saveBet(bet);
+
+        return "redirect:/users/details";
+    }
+
+
+
+    @GetMapping("/checkown")
+    public String checkOwn(@AuthenticationPrincipal CurrentUser customUser, Model model) {
+        List<Bet> bets = betService.getBetsByUserId(customUser.getUser().getId());
+        model.addAttribute("bets", bets);
+        return "allBETSofUSER";
+    }
 }

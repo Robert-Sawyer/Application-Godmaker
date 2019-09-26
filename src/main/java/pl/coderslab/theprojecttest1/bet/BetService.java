@@ -46,4 +46,9 @@ public class BetService {
     public Bet findBetById(Long id) {
         return betRepository.findById(id).orElse(null);
     }
+
+    public List<Bet> getBetsByUserId(Long id) {
+        return betRepository.findAllByUserId(id);
+    }
+
 }

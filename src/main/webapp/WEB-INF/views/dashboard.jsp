@@ -6,7 +6,7 @@
 
 <html>
 <head>
-    <title>eee</title>
+    <title>Strona główna</title>
     <script src="<c:url value="/webjars/jquery/3.0.0/jquery.min.js"/>"></script>
     <script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"/>"></script>
     <link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -15,6 +15,7 @@
 <body>
 
 <%@include file="/WEB-INF/views/fragments/header.jspf" %>
+
 <br>
 <br>
 <br>
@@ -25,27 +26,19 @@
 <br>
 <br>
 <div class="container">
+    <div class="card text-center">
+        <div class="ctr">
 
-
-
-    <div class="card">
-        <div class="card-body">
-            <p>Już nie możesz obstawić tego meczu!</p>
+            <h1>Witaj ${user.username}!</h1>
+            <br>
+            <h3>Aktualnie posiadasz ${user.credit} zł.</h3><br>
+            <br>
+            <p>Trochę mało. Może obstaw jakiś meczyk...</p>
         </div>
     </div>
-
-    <sec:authorize access="hasRole('ADMIN')">
-        <div class="card">
-            <div class="card-body">
-                <p>Albo jesteś oszustem adminie!</p>
-            </div>
-        </div>
-    </sec:authorize>
-
-
-
-
 </div>
 
+
 </body>
+
 </html>
