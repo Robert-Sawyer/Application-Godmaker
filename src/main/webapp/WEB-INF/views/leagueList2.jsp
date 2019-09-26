@@ -33,18 +33,19 @@
 <br>
 <div class="container">
 
-    <div class="card">
+    <div class="card text-center">
         <div class="card-body">
             <p>Ligi</p>
         </div>
     </div>
 
 
-<div class="card mt-4">
+<div class="card mt-4 text-center">
     <div class="card-body">
-        <table class="table table-hover">
+        <table class="table table-hover" >
     <tr>
         <th>Nazwa</th>
+        <th></th>
         <th colspan="1">Kolejki</th>
     </tr>
             <c:forEach items="${leagues}" var="league">
@@ -54,23 +55,23 @@
 
                     <td><c:if test="${league.id == 1}">
                         <img src="/resources/pol.png" alt="logo" width="120" height="120" >
-                    </c:if></td>
+                    </c:if>
 
 
-                    <td><c:if test="${league.id == 2}">
-                        <img src="/resources/ang.jpeg" alt="logo" width="120" height="120" >
-                    </c:if></td>
+                    <c:if test="${league.id == 2}">
+                        <img src="/resources/ang.jpeg" alt="logo" width="240" height="120" >
+                    </c:if>
 
 
-                    <td><c:if test="${league.id == 3}">
+                    <c:if test="${league.id == 3}">
                         <img src="/resources/esp.png" alt="logo" width="120" height="120" >
-                    </c:if></td>
+                    </c:if>
 
-                    <td><c:if test="${league.id == 4}">
-                        <img src="/resources/ita.jpeg" alt="logo" width="120" height="120" >
-                    </c:if></td>
+                    <c:if test="${league.id == 4}">
+                        <img src="/resources/ita.jpeg" alt="logo" width="80" height="120" >
+                    </c:if>
 
-                    <td><c:if test="${league.id == 5}">
+                    <c:if test="${league.id == 5}">
                         <img src="/resources/fra.jpeg" alt="logo" width="120" height="120" >
                     </c:if></td>
 

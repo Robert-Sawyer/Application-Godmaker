@@ -10,7 +10,7 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
 
-                    <a class="navbar-brand" href="/"><img class="thumbnail img-responsive" src="/resources/logo.png" alt="logo" width="120" height="120" ></a>
+                    <a class="navbar-brand" href="/ball"><img class="thumbnail img-responsive" src="/resources/logo.png" alt="logo" width="120" height="120" ></a>
                 </li>
             </ul>
 
@@ -67,7 +67,7 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <sec:authorize access="!isAuthenticated()">
                     <form class="form-inline my-2 my-lg-0" method="get" action="/users/add">
-                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Zarejestruj</button>
+                        <button type="submit" class="btn btn-warning my-2 my-sm-0">Zarejestruj</button>
                     </form>
                 </sec:authorize>
             </ul>
@@ -77,7 +77,7 @@
             <li>
                 <sec:authorize access="!isAuthenticated()">
                     <form class="form-inline my-2 my-lg-0" method="get" action="/login">
-                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Zaloguj</button>
+                        <button type="submit" class="btn btn-warning my-2 my-sm-0">Zaloguj</button>
                     </form>
                 </sec:authorize>
             </li>
@@ -87,7 +87,7 @@
             <li>
                 <sec:authorize access="isAuthenticated()">
                     <form class="form-inline my-2 my-lg-0" action="<c:url value="/logout"/>" method="post">
-                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Wyloguj">
+                        <input class="btn btn-danger my-2 my-sm-0" type="submit" value="Wyloguj">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </form>
                 </sec:authorize>

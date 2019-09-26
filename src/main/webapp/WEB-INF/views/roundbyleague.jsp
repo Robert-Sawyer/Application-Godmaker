@@ -27,20 +27,20 @@
 <div class="container">
 
 
-    <div class="card">
+    <div class="card text-center">
         <div class="card-body">
             <p>${num}</p>
             <c:if test="${lig.id == 1}">
                 <img src="/resources/pol.png" alt="logo" width="120" height="120" >
             </c:if>
             <c:if test="${lig.id == 2}">
-                <img src="/resources/ang.jpeg" alt="logo" width="120" height="120" >
+                <img src="/resources/ang.jpeg" alt="logo" width="240" height="120" >
             </c:if>
             <c:if test="${lig.id == 3}">
                 <img src="/resources/esp.png" alt="logo" width="120" height="120" >
             </c:if>
             <c:if test="${lig.id == 4}">
-                <img src="/resources/ita.jpeg" alt="logo" width="120" height="120" >
+                <img src="/resources/ita.jpeg" alt="logo" width="80" height="120" >
             </c:if>
             <c:if test="${lig.id == 5}">
                 <img src="/resources/fra.jpeg" alt="logo" width="120" height="120" >
@@ -51,10 +51,10 @@
 
     <div class="card mt-4">
         <div class="card-body">
-            <table class="table table-hover">
+            <table class="table table-hover text-center">
                 <tr>
                     <th>Numer kolejki</th>
-                    <th colspan="1">Mecze</th>
+                    <th>Mecze</th>
                 </tr>
                 <c:forEach items="${rounds}" var="round">
                     <tr>
@@ -68,7 +68,7 @@
     </div>
 
     <sec:authorize access="hasRole('ADMIN')">
-        <div class="card">
+        <div class="card text-center">
             <div class="card-body">
                 <a href="/rounds/add/${x}" class="btn btn-primary">Dodaj rundę</a>
             </div>

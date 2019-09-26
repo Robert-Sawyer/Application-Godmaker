@@ -27,9 +27,10 @@
 <br>
 <div class="container">
 
+    <form:form method="post" modelAttribute="bet">
 
 
-    <div class="card">
+    <div class="card text-center">
         <div class="card-body">
             <p>${bet.match.homeTeam} vs. ${bet.match.awayTeam}</p>
         </div>
@@ -39,15 +40,16 @@
 
 
 
-    <div class="card mt-4">
+    <div class="card mt-4 text-center">
         <div class="card-body">
 
-            <form:form method="post" modelAttribute="bet">
 
                 <form:hidden path="match.id" value="${bet.match.id}"/>
                 <form:hidden path="gain" value="${bet.gain}"/>
 
                 <div class="row">
+
+
                     <div class="form-group col-md-6">
                         <label for="cashId">Ile postawić pieniędzy?</label>
                         <form:input path="cashDeposit" type="number" step="0.01" min="1" class="form-control" id="cashId"/>
@@ -62,10 +64,17 @@
 
                 </div>
 
-                <input type="submit" value="Save" class="btn btn-primary">
-            </form:form>
+
         </div>
     </div>
+
+        <div class="card text-center">
+            <div class="card-body">
+
+        <input type="submit" value="Zapisz" class="btn btn-primary">
+            </div>
+        </div>
+    </form:form>
 </div>
 
 </body>

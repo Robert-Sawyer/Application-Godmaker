@@ -34,9 +34,9 @@
 <div class="container">
 
 
-<div class="card mt-4">
+<div class="card mt-4 text-center">
     <div class="card-body">
-        <table class="table table-hover">
+        <table class="table table-hover text-center">
             <tr>
                 <th>Login</th>
                 <th>Email</th>
@@ -45,7 +45,7 @@
                 <tr>
                     <td>${user.username}</td>
                     <td>${user.email}</td>
-                    <td>${user.credit}</td>
+                    <td>${user.credit} zł</td>
 
                 </tr>
         </table>

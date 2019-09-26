@@ -27,9 +27,9 @@
 <br>
 <div class="container">
 
+    <form:form method="post" modelAttribute="match">
 
-
-    <div class="card">
+    <div class="card text-center">
         <div class="card-body">
             <p>${match.homeTeam} vs. ${match.awayTeam}</p>
         </div>
@@ -39,10 +39,10 @@
 
 
 
-    <div class="card mt-4">
+    <div class="card mt-4 text-center">
         <div class="card-body">
 
-            <form:form method="post" modelAttribute="match">
+
 
                 <form:hidden path="id" value="${match.id}" />
                 <form:hidden path="homeTeam" value="${match.homeTeam}" />
@@ -62,8 +62,6 @@
                     <form:errors path="homeGoals" element="div" cssClass="error"/>
                 </label>
                     </div>
-                </div>
-                <div class="row">
                     <div class="form-group col-md-6">
                 <label>Gole dla gości:
                     <form:input path="awayGoals" type="number" min="0"/>
@@ -71,12 +69,20 @@
                 </label>
                     </div>
                 </div>
-                <input type="submit" value="Save" class="btn btn-primary">
 
-            </form:form>
+
+
 
         </div>
     </div>
+
+        <div class="card text-center">
+            <div class="card-body">
+                <input type="submit" value="Podlicz" class="btn btn-primary">
+            </div>
+        </div>
+    </form:form>
+
 </div>
 
 </body>

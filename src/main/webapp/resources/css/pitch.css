@@ -1,9 +1,3 @@
-body {
-    background-color: #eee;
-    color: darkblue;
-    background-image: url("../tapa.jpg");
-}
-
 .error {
     color: red;
 }
@@ -43,10 +37,22 @@ header {
 
 .card-body {
     background-color: ivory;
-    color: darkblue;
 }
 
 .example11 {
     text-align: center;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
+body {
+    background-color: #eee;
+    color: darkblue;
+    background-image: url("../pitch4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

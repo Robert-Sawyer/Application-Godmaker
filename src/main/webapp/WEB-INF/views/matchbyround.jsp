@@ -28,7 +28,7 @@
 
 
 
-    <div class="card">
+    <div class="card text-center">
         <div class="card-body">
             <p>${league}, kolejka ${round}</p>
         </div>
@@ -87,7 +87,11 @@
 
                         <sec:authorize access="hasRole('ADMIN')">
                             <td>
-                                    <a href="/matches/bigupdate/${match.id}" class="btn btn-primary">Podlicz</a>
+                                <c:if test="${empty match.homeGoals}">
+
+                                <a href="/matches/bigupdate/${match.id}" class="btn btn-primary">Podlicz</a>
+
+                                </c:if>
                             </td>
                         </sec:authorize>
 
@@ -102,7 +106,7 @@
 
 
     <sec:authorize access="hasRole('ADMIN')">
-        <div class="card">
+        <div class="card text-center">
             <div class="card-body">
                 <a href="/matches/add/${idRound}" class="btn btn-primary">Dodaj mecz</a>
             </div>

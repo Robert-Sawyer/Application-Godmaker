@@ -28,52 +28,52 @@
 <div class="container">
 
 
+    <form:form method="post" modelAttribute="match">
 
     <div class="card mt-4">
         <div class="card-body">
 
-            <form:form method="post" modelAttribute="match">
 
                 <form:hidden path="round.id" value="${match.round.id}"/>
 
                 <div class="row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3 text-center">
                         <label>Gospodarze:
                             <form:input path="homeTeam" class="form-control"/>
                             <form:errors path="homeTeam" element="div" cssClass="error"/>
                         </label>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3 text-center">
                         <label>Goście:
                             <form:input path="awayTeam" class="form-control"/>
                             <form:errors path="awayTeam" element="div" cssClass="error"/>
                         </label>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3 text-center">
                         <label>Kurs na zwycięstwo gospodarzy:
                             <form:input path="homeCourse" class="form-control"/>
                             <form:errors path="awayCourse" element="div" cssClass="error"/>
                         </label>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3 text-center">
                         <label>Kurs na remis:
                             <form:input path="drawCourse" class="form-control"/>
                             <form:errors path="drawCourse" element="div" cssClass="error"/>
                         </label>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3 text-center">
                         <label>Kurs na zwycięstwo gości:
                             <form:input path="awayCourse" class="form-control"/>
                             <form:errors path="awayCourse" element="div" cssClass="error"/>
                         </label>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3 text-center">
                         <label>Data rozpoczęcie meczu:
                             <form:input path="startDate" type="date" class="form-control"/>
                             <form:errors path="startDate" element="div" cssClass="error"/>
                         </label>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3 text-center">
                         <label>Godzina rozpoczęcia meczu:
                             <form:input path="startTime" class="form-control" type="time"/>
                             <form:errors path="startTime" element="div" cssClass="error"/>
@@ -81,12 +81,16 @@
                     </div>
                 </div>
 
-                <input type="submit" value="Save" class="btn btn-primary">
-            </form:form>
+
         </div>
     </div>
 
-
+    <div class="card text-center">
+        <div class="card-body">
+            <input type="submit" value="Zapisz" class="btn btn-primary">
+        </div>
+    </div>
+    </form:form>
 
 </div>
 

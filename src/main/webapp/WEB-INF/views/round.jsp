@@ -28,16 +28,16 @@
 <div class="container">
 
 
-
+    <form:form method="post" modelAttribute="round">
     <div class="card mt-4">
         <div class="card-body">
 
-            <form:form method="post" modelAttribute="round">
+
 
                 <form:hidden path="league.id" value="${league.id}"/>
 
                 <div class="row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-3 text-center">
                         <label for="numId">Numer kolejki</label>
                         <form:input path="number" type="number" min="1" class="form-control" id="numId"/>
                         <form:errors path="number" element="div" cssClass="error"/>
@@ -45,12 +45,15 @@
 
                 </div>
 
-                <input type="submit" value="Save" class="btn btn-primary">
-            </form:form>
         </div>
     </div>
 
-
+    <div class="card text-center">
+        <div class="card-body">
+            <input type="submit" value="Zapisz" class="btn btn-primary">
+        </div>
+    </div>
+    </form:form>
 
 </div>
 

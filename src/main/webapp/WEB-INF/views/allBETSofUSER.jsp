@@ -33,7 +33,7 @@
 <br>
 <div class="container">
 
-    <div class="card">
+    <div class="card text-center">
         <div class="card-body">
             <p>Zakłady</p>
         </div>
@@ -55,7 +55,7 @@
                     <tr>
                         <td>${bet.id}</td>
                         <td>${bet.match.homeTeam} vs. ${bet.match.awayTeam}</td>
-                        <td>${bet.cashDeposit}</td>
+                        <td>${bet.cashDeposit} zł</td>
 
                         <td>
                         <c:if test="${bet.kindOfBet == 0}">
@@ -71,7 +71,7 @@
                         <c:if test="${not empty bet.match.homeGoals}"><td>${bet.match.homeGoals}:${bet.match.awayGoals}</td></c:if>
                         <c:if test="${empty bet.match.homeGoals}"><td>-:-</td></c:if>
 
-                        <td>${bet.gain}</td>
+                        <td>${bet.gain} zł</td>
 
 
                     </tr>

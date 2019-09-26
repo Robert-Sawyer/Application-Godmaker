@@ -50,24 +50,34 @@ public class MatchService {
             Double userCash = user.getCredit();
             if (bet.getKindOfBet() == 0) {
                 if (match.getHomeGoals() > match.getAwayGoals()) {
-                    user.setCredit(userCash + (bet.getCashDeposit() * match.getHomeCourse()));
+                    Double cashToGet = bet.getCashDeposit() * match.getHomeCourse();
+                    Double cashToGetRound = Math.round(cashToGet * 100.0) / 100.0;
+
+
+                    user.setCredit(Math.round((userCash + cashToGetRound) * 100.0) / 100.0);
                     userRepository.save(user);
 
-                    bet.setGain(bet.getCashDeposit() * match.getHomeCourse() - bet.getCashDeposit());
+                    bet.setGain(Math.round((cashToGetRound - bet.getCashDeposit()) * 100.0) / 100.0);
                 }
             } else if (bet.getKindOfBet() == 1) {
                 if (match.getHomeGoals() == match.getAwayGoals()) {
-                    user.setCredit(userCash + (bet.getCashDeposit() * match.getDrawCourse()));
+                    Double cashToGet = bet.getCashDeposit() * match.getDrawCourse();
+                    Double cashToGetRound = Math.round(cashToGet * 100.0) / 100.0;
+
+                    user.setCredit(Math.round((userCash + cashToGetRound) * 100.0) / 100.0);
                     userRepository.save(user);
 
-                    bet.setGain(bet.getCashDeposit() * match.getDrawCourse() - bet.getCashDeposit());
+                    bet.setGain(Math.round((cashToGetRound - bet.getCashDeposit()) * 100.0) / 100.0);
                 }
             } else {
                 if (match.getHomeGoals() < match.getAwayGoals()) {
-                    user.setCredit(userCash + (bet.getCashDeposit() * match.getAwayCourse()));
+                    Double cashToGet = bet.getCashDeposit() * match.getAwayCourse();
+                    Double cashToGetRound = Math.round(cashToGet * 100.0) / 100.0;
+
+                    user.setCredit(Math.round((userCash + cashToGetRound) * 100.0) / 100.0);
                     userRepository.save(user);
 
-                    bet.setGain(bet.getCashDeposit() * match.getAwayCourse() - bet.getCashDeposit());
+                    bet.setGain(Math.round((cashToGetRound - bet.getCashDeposit()) * 100.0) / 100.0);
                 }
             }
 
