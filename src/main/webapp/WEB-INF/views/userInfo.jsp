@@ -51,6 +51,30 @@
         </table>
     </div>
 </div>
+
+
+<br>
+<br>
+
+        <div class="card text-center">
+            <div class="ctr">
+                <br>
+                <br>
+            <p>Aby doładować konto lub odebrać pieniądze skontaktuj się z administratorem strony - wojciech.gladalski@gmail.com</p>
+                <br>
+                <br>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
 </div>
 </body>
 </html>

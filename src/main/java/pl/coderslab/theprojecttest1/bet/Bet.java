@@ -21,7 +21,7 @@ public class Bet {
     @Min(1)
     private Double cashDeposit;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)//niebezpieczne
     private User user;
 
     @NotNull

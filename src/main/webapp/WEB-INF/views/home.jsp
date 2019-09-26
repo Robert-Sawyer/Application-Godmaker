@@ -35,7 +35,8 @@
 <div class="container">
     <div class="card text-center">
         <div class="ctr">
-
+            <br>
+            <br>
             <h1>Witaj na stronie Bógmacher!</h1>
             <br>
             <br>
@@ -44,6 +45,7 @@
                 <h3>Strona dla hazardzistów o mocnych nerwach!</h3><br>
             <br>
             <p>Obstawiaj mecze swoich ulubionych druzyn.</p><br><br><p> Wygrywaj ogromne pieniądze i zostań obrzydliwie bogaty.</p><br><br><p> Do dzieła! Rejestruj się!</p>
+            <br>
         </div>
     </div>
 </div>

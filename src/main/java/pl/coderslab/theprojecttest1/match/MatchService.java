@@ -43,7 +43,6 @@ public class MatchService {
 
     public void saveMatchUp(Match match) {
 
-        Hibernate.initialize(match.getBets());
         List<Bet> bets = betRepository.findAllByMatchId(match.getId());
 
         bets.forEach(bet -> {

@@ -57,7 +57,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" href="/matches/all2">Zobacz wszystkie mecze</a>
+                    <a class="nav-link" href="/matches/checkAll">Zobacz wszystkie mecze</a>
 
                 </li>
             </ul>
@@ -73,17 +73,22 @@
             </ul>
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li>
-                <sec:authorize access="isAuthenticated()">
-                    <form class="form-inline my-2 my-lg-0" method="get" action="/logout">
-                        <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Wyloguj</button>
-                    </form>
-                </sec:authorize>
-                </li>
+
             <li>
                 <sec:authorize access="!isAuthenticated()">
                     <form class="form-inline my-2 my-lg-0" method="get" action="/login">
                         <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Zaloguj</button>
+                    </form>
+                </sec:authorize>
+            </li>
+            </ul>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+            <li>
+                <sec:authorize access="isAuthenticated()">
+                    <form class="form-inline my-2 my-lg-0" action="<c:url value="/logout"/>" method="post">
+                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Wyloguj">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     </form>
                 </sec:authorize>
             </li>

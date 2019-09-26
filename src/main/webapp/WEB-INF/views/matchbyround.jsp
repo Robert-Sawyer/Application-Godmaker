@@ -48,6 +48,15 @@
                     <th>Data meczu</th>
                     <th>Godzina meczu</th>
                     <th colspan="1"></th>
+
+
+                    <sec:authorize access="hasRole('ADMIN')">
+                        <td>
+                            Metody Admina
+                        </td>
+                    </sec:authorize>
+
+
                 </tr>
                 <c:forEach items="${matches}" var="match">
                     <tr>
@@ -67,7 +76,22 @@
                         <td>${match.awayCourse}</td>
                         <td>${match.startDate}</td>
                         <td>${match.startTime}</td>
-                        <td><a href="/bets/do/${match.id}">Obstaw!</a></td>
+                        <c:if test="${not empty match.homeGoals}">
+                            <td>Nie możesz juz obstawić</td>
+                        </c:if>
+                        <c:if test="${empty match.homeGoals}">
+                            <td><a href="/bets/do/${match.id}">Obstaw!</a></td>
+                        </c:if>
+
+
+
+                        <sec:authorize access="hasRole('ADMIN')">
+                            <td>
+                                    <a href="/matches/bigupdate/${match.id}" class="btn btn-primary">Podlicz</a>
+                            </td>
+                        </sec:authorize>
+
+
 
                     </tr>
                 </c:forEach>
@@ -80,17 +104,11 @@
     <sec:authorize access="hasRole('ADMIN')">
         <div class="card">
             <div class="card-body">
-                <a href="/matches/add/${rI}" class="btn btn-primary">Dodaj mecz</a>
+                <a href="/matches/add/${idRound}" class="btn btn-primary">Dodaj mecz</a>
             </div>
         </div>
     </sec:authorize>
-    <sec:authorize access="hasRole('ADMIN')">
-        <div class="card">
-            <div class="card-body">
-                <a href="/match/bigup/${rI}" class="btn btn-primary">Podlicz</a>
-            </div>
-        </div>
-    </sec:authorize>
+
 
 
 

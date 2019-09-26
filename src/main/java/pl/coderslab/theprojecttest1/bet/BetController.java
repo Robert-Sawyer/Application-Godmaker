@@ -145,9 +145,11 @@ public class BetController {
 
         Date dateMatch = dateAll.getTime();
 
-        if (dateNow.after(dateMatch)) {
-            return "wrongHour";
-        }
+
+        ///////////////////////////////////////CZAS//////////////////////////
+//        if (dateNow.after(dateMatch)) {
+//            return "wrongHour";
+//        }
 
 
         //model.addAttribute("matchyy", match);
@@ -179,7 +181,7 @@ public class BetController {
 
         betService.saveBet(bet);
 
-        return "redirect:/users/details";
+        return "redirect:/bets/checkown";
     }
 
 

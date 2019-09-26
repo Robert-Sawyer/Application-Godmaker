@@ -65,11 +65,11 @@ public class MatchController {
         Date dateMatch = dateComplete.getTime();
 
 
+////////////////////////CZAS//////////////////////////
 
-
-        if (dateNow.after(dateMatch)) {
-            return "wrongHour";
-        }
+//        if (dateNow.after(dateMatch)) {
+//            return "wrongHour";
+//        }
         ////////////////////////////////////////////////
 
 
@@ -116,14 +116,14 @@ public class MatchController {
 //    }
 
 
-    @GetMapping(value = "/bigupdate/{id}")
-    public String bigUpdateMatch(@PathVariable Long id, Model model) {
-        Match match = matchService.findMatchById(id);
+    @GetMapping(value = "/bigupdate/{idOf}")
+    public String bigUpdateMatch(@PathVariable Long idOf, Model model) {
+        Match match = matchService.findMatchById(idOf);
         model.addAttribute("match", match);
         return "matchUp";
     }
 
-    @PostMapping("/bigupdate/{id}")
+    @PostMapping("/bigupdate/{idOf}")
     public String bigUpdateMatch(@ModelAttribute Match match, BindingResult result) {
 
 
@@ -147,12 +147,12 @@ public class MatchController {
 
         Date dateMatch = dateComplete.getTime();
 
+////////////////////////CZAS///////////////////////
 
 
-
-        if (dateNow.before(dateMatch)) {
-            return "wrongHour";
-        }
+//        if (dateNow.before(dateMatch)) {
+//            return "wrongHour";
+//        }
 
 
 
@@ -160,7 +160,7 @@ public class MatchController {
             return "matchUp";
         }
         matchService.saveMatchUp(match);
-        return "redirect:/matches/all";
+        return "redirect:/matches/check/" + match.getRound().getId();
     }
 
 
@@ -176,7 +176,13 @@ public class MatchController {
         model.addAttribute("round", round);
         model.addAttribute("league", league);
 
-        model.addAttribute("rI", idOf);
+        model.addAttribute("idRound", idOf);
         return "matchbyround";
+    }
+
+    @GetMapping("/checkAll")
+    public String checkAll(Model model) {
+        model.addAttribute("matches", matchService.getAllMatches());
+        return "matchList2";
     }
 }

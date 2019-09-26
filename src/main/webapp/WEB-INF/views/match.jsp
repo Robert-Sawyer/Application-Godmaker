@@ -69,13 +69,13 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>Data rozpoczęcie meczu:
-                            <form:input path="startDate" type="date"/>
+                            <form:input path="startDate" type="date" class="form-control"/>
                             <form:errors path="startDate" element="div" cssClass="error"/>
                         </label>
                     </div>
                     <div class="form-group col-md-3">
                         <label>Godzina rozpoczęcia meczu:
-                            <form:input path="startTime" class="form-control"/>
+                            <form:input path="startTime" class="form-control" type="time"/>
                             <form:errors path="startTime" element="div" cssClass="error"/>
                         </label>
                     </div>

@@ -28,12 +28,14 @@
 <div class="container">
     <div class="card text-center">
         <div class="ctr">
-
+            <br>
+            <br>
             <h1>Witaj ${user.username}!</h1>
             <br>
             <h3>Aktualnie posiadasz ${user.credit} zł.</h3><br>
             <br>
             <p>Trochę mało. Może obstaw jakiś meczyk...</p>
+            <br>
         </div>
     </div>
 </div>

@@ -72,17 +72,17 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/create-user")
-    @ResponseBody
-    public String createUser() {
-        User user = new User();
-        user.setUsername("admin1");
-        user.setPassword("admin1");
-        user.setEmail("admin1@pl");
-        user.setCredit(100.00);
-        userService.saveUser(user);
-        return "admin";
-    }
+//    @GetMapping("/create-user")
+//    @ResponseBody
+//    public String createUser() {
+//        User user = new User();
+//        user.setUsername("admin1");
+//        user.setPassword("admin1");
+//        user.setEmail("admin1@pl");
+//        user.setCredit(100.00);
+//        userService.saveUser(user);
+//        return "admin";
+//    }
 
     @GetMapping(value = "/add")
     public String addUser(Model model) {
@@ -105,7 +105,7 @@ public class UserController {
     public String checkUser(@AuthenticationPrincipal CurrentUser customUser, Model model) {
         User user = customUser.getUser();
 
-        model.addAttribute("user", user);
+        model.addAttribute("user", userService.findByUserName(user.getUsername()));
 
         return "userInfo";
     }
