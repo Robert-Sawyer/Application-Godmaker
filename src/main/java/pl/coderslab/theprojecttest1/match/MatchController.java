@@ -28,18 +28,18 @@ public class MatchController {
     @Autowired
     private RoundService roundService;
 
-    @GetMapping(value = "/add/{id}")
-    public String addMatch(Model model, @PathVariable Long id) {
+    @GetMapping(value = "/add/{idOf}")
+    public String addMatch(Model model, @PathVariable Long idOf) {
 
         Match match = new Match();
 
-        match.setRound(roundService.findRoundById(id));
+        match.setRound(roundService.findRoundById(idOf));
 
         model.addAttribute("match", match);
         return "match";
     }
 
-    @PostMapping("/add/{id}")
+    @PostMapping("/add/{idOf}")
     public String addMatch(@Valid Match match, BindingResult result) {
 
         ///////przeniesienie do servisu np//////////
@@ -51,11 +51,13 @@ public class MatchController {
         Calendar dateComplete = Calendar.getInstance();
         dateComplete.setTime(match.getStartDate());
 
-        dateComplete.add(Calendar.DATE, -1);//żeby nie można było dodać później niz dzień przed
 
         dateComplete.set(Calendar.HOUR_OF_DAY, time.get(Calendar.HOUR_OF_DAY));
         dateComplete.set(Calendar.MINUTE, time.get(Calendar.MINUTE));
         dateComplete.set(Calendar.SECOND, time.get(Calendar.SECOND));
+
+        dateComplete.add(Calendar.HOUR_OF_DAY, -1);//żeby nie można było dodać później niz godzinę przed
+
 
 
 
@@ -79,39 +81,39 @@ public class MatchController {
         return "redirect:/matches/check/" + match.getRound().getId();
     }
 
-    @GetMapping(value = "/all")
-    public String getAllMatches(Model model) {
-        List<Match> matches = matchService.getAllMatches();
-        model.addAttribute("matches", matches);
-        return "matchList";
-    }
-
-    @GetMapping(value = "/update/{id}")
-    public String updateMatch(@PathVariable Long id, Model model) {
-        Match match = matchService.findMatchById(id);
-        model.addAttribute("match", match);
-        return "match";
-    }
-
-    @PostMapping("/update/{id}")
-    public String updateMatch(@Valid Match match, BindingResult result) {
-        if (result.hasErrors()) {
-            return "match";
-        }
-        matchService.saveMatch(match);
-        return "redirect:/matches/all";
-    }
-
-    @GetMapping(value = "/delete/{id}")
-    public String deleteMatch(@PathVariable Long id) {
-        matchService.deleteMatch(id);
-        return "redirect:/matches/all";
-    }
-
-    @ModelAttribute("rounds")
-    public List<Round> getRounds() {
-        return roundService.getAllRounds();
-    }
+//    @GetMapping(value = "/all")
+//    public String getAllMatches(Model model) {
+//        List<Match> matches = matchService.getAllMatches();
+//        model.addAttribute("matches", matches);
+//        return "matchList";
+//    }
+//
+//    @GetMapping(value = "/update/{id}")
+//    public String updateMatch(@PathVariable Long id, Model model) {
+//        Match match = matchService.findMatchById(id);
+//        model.addAttribute("match", match);
+//        return "match";
+//    }
+//
+//    @PostMapping("/update/{id}")
+//    public String updateMatch(@Valid Match match, BindingResult result) {
+//        if (result.hasErrors()) {
+//            return "match";
+//        }
+//        matchService.saveMatch(match);
+//        return "redirect:/matches/all";
+//    }
+//
+//    @GetMapping(value = "/delete/{id}")
+//    public String deleteMatch(@PathVariable Long id) {
+//        matchService.deleteMatch(id);
+//        return "redirect:/matches/all";
+//    }
+//
+//    @ModelAttribute("rounds")
+//    public List<Round> getRounds() {
+//        return roundService.getAllRounds();
+//    }
 
 
     @GetMapping(value = "/bigupdate/{id}")
@@ -165,16 +167,16 @@ public class MatchController {
     @Autowired
     private LeagueService leagueService;
 
-    @GetMapping("/check/{id}")
-    public String checkMatchByRound(@PathVariable Long id, Model model) {
-        List<Match> matches = matchService.findMatchByRound(id);
-        String round = roundService.findRoundById(id).getNumber().toString();
-        String league = leagueService.findLeagueById(roundService.findRoundById(id).getLeague().getId()).getName();
+    @GetMapping("/check/{idOf}")
+    public String checkMatchByRound(@PathVariable Long idOf, Model model) {
+        List<Match> matches = matchService.findMatchByRound(idOf);
+        String round = roundService.findRoundById(idOf).getNumber().toString();
+        String league = leagueService.findLeagueById(roundService.findRoundById(idOf).getLeague().getId()).getName();
         model.addAttribute("matches", matches);
         model.addAttribute("round", round);
         model.addAttribute("league", league);
 
-        model.addAttribute("rI", id);
+        model.addAttribute("rI", idOf);
         return "matchbyround";
     }
 }

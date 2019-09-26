@@ -28,14 +28,14 @@ public class MatchService {
     public void saveMatch(Match match) {
 //        Calendar time = Calendar.getInstance();
 //        time.setTime(match.getStartTime());
-//        Calendar cal = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
 //
-//        cal.setTime(match.getStart());
-//        cal.set(Calendar.HOUR_OF_DAY, time.get(Calendar.HOUR_OF_DAY));
+        cal.setTime(match.getStartDate());
+        cal.set(Calendar.HOUR_OF_DAY, 12);//żeby data podczas zapisania się nie cofnęła
 //        cal.set(Calendar.MINUTE, time.get(Calendar.MINUTE));
 //        cal.set(Calendar.SECOND, time.get(Calendar.SECOND));
 //
-//        match.setStart(cal.getTime());
+        match.setStartDate(cal.getTime());
         /////////////////////////////////ZGODNA DATA////////////////////////////
         matchRepository.save(match);
 
