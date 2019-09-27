@@ -2,6 +2,7 @@
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <html>
@@ -32,7 +33,7 @@
             <br>
             <h1>Witaj ${user.username}!</h1>
             <br>
-            <h3>Aktualnie posiadasz ${user.credit} zł.</h3><br>
+            <h3>Aktualnie posiadasz <fmt:formatNumber value="${user.credit}" type="currency" currencySymbol="zł"/>.</h3><br>
             <br>
             <p>Trochę mało. Może obstaw jakiś meczyk...</p>
             <br>

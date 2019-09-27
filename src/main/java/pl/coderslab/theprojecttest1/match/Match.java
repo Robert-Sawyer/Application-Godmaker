@@ -23,30 +23,30 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Podaj prawidłowe dane")
     private String homeTeam;
 
-    @NotBlank
+    @NotBlank(message = "Podaj prawidłowe dane")
     private String awayTeam;
 
-    @NotNull
-    @Min(1)
+    @NotNull(message = "Podaj prawidłowe dane")
+    @Min(value = 1, message = "Podaj poprawną liczbę")
     private Double homeCourse;
 
-    @NotNull
-    @Min(1)
+    @NotNull(message = "Podaj prawidłowe dane")
+    @Min(value = 1, message = "Podaj poprawną liczbę")
     private Double drawCourse;
 
-    @NotNull
-    @Min(1)
+    @NotNull(message = "Podaj prawidłowe dane")
+    @Min(value = 1, message = "Podaj poprawną liczbę")
     private Double awayCourse;
 
-    @NotNull
+    @NotNull(message = "Podaj prawidłową datę")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date startDate;
 
-    @NotNull
+    @NotNull(message = "Podaj prawidłową godzinę")
     @DateTimeFormat(pattern = "HH:mm")
     @Temporal(TemporalType.TIME)
     private Date startTime;

@@ -22,8 +22,8 @@ public class User {
     private Long id;
 
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "Podaj dane")
+    @Email(message = "Podaj prawidłowe adres email")
     private String email;
 
 
@@ -42,10 +42,10 @@ public class User {
 
 
 
-    @NotBlank
+    @NotBlank(message = "Podaj dane")
     @Column(nullable = false, unique = true)
     private String username;
-    @NotBlank
+    @NotBlank(message = "Podaj dane")
     private String password;
     private int enabled;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

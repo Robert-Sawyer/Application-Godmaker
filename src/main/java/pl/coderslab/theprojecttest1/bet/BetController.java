@@ -1,7 +1,6 @@
 package pl.coderslab.theprojecttest1.bet;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.AuthenticatedPrincipal;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.theprojecttest1.match.Match;
 import pl.coderslab.theprojecttest1.match.MatchService;
 import pl.coderslab.theprojecttest1.user.CurrentUser;
-import pl.coderslab.theprojecttest1.user.User;
-import pl.coderslab.theprojecttest1.user.UserService;
 
 import javax.validation.Valid;
 import java.util.Calendar;
@@ -165,8 +162,10 @@ public class BetController {
     }
 
     @PostMapping("/do/{idOf}")
-    public String doBet(@Valid Bet bet, @AuthenticationPrincipal CurrentUser customUser, BindingResult result) {
-
+    public String doBet(@PathVariable Long idOf, @Valid
+            Bet bet, BindingResult result, @AuthenticationPrincipal CurrentUser customUser) {
+        Match match = matchService.findMatchById(idOf);
+        bet.setMatch(match);
         if (result.hasErrors()) {
             return "dobet";
         }

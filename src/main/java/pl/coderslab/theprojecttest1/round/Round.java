@@ -19,8 +19,8 @@ public class Round {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Min(1)
+    @NotNull(message = "Podaj prawidłowe dane")
+    @Min(value = 1, message = "Podaj prawidłowy numer")
     private Integer number;
 
     @NotNull

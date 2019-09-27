@@ -9,6 +9,7 @@
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <html>
@@ -45,7 +46,7 @@
                 <tr>
                     <td>${user.username}</td>
                     <td>${user.email}</td>
-                    <td>${user.credit} zł</td>
+                    <td><fmt:formatNumber value="${user.credit}" type="currency" currencySymbol="zł"/></td>
 
                 </tr>
         </table>

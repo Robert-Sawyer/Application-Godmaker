@@ -7,6 +7,8 @@ import pl.coderslab.theprojecttest1.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -17,18 +19,18 @@ public class Bet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Min(1)
+    @NotNull(message = "Podaj prawidłowe dane")
+    @Min(value = 1, message = "Podaj prawidłową kwotę")
     private Double cashDeposit;
 
     @ManyToOne(fetch = FetchType.EAGER)//niebezpieczne
     private User user;
 
-    @NotNull
+    @NotNull(message = "Podaj prawidłowe dane")
     @ManyToOne(fetch = FetchType.EAGER)//niebezpieczne
     private Match match;
 
-    @NotNull
+    @NotNull(message = "Podaj prawidłowe dane")
     @Range(min = 0, max = 2)
     private Integer kindOfBet;
     //0 gosp 1 remis 2 goscie

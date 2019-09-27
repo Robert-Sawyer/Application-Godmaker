@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.theprojecttest1.league.LeagueService;
 import pl.coderslab.theprojecttest1.round.Round;
@@ -42,6 +43,18 @@ public class MatchController {
     @PostMapping("/add/{idOf}")
     public String addMatch(@Valid Match match, BindingResult result) {
 
+
+        if (result.hasErrors()) {
+            return "match";
+        }
+
+
+
+
+
+
+
+
         ///////przeniesienie do servisu np//////////
         Date dateNow = new Date();
 
@@ -73,9 +86,7 @@ public class MatchController {
         ////////////////////////////////////////////////
 
 
-        if (result.hasErrors()) {
-            return "match";
-        }
+
 
         matchService.saveMatch(match);
         return "redirect:/matches/check/" + match.getRound().getId();
@@ -127,6 +138,19 @@ public class MatchController {
     public String bigUpdateMatch(@ModelAttribute Match match, BindingResult result) {
 
 
+        if(match.getHomeGoals()==null){
+            FieldError err = new FieldError("match","homeGoals","Podaj prawidłowe dane");
+            result.addError(err);
+        }
+
+        if(match.getAwayGoals()==null){
+            FieldError err = new FieldError("match","awayGoals","Podaj prawidłowe dane");
+            result.addError(err);
+        }
+        if (result.hasErrors()) {
+            return "matchUp";
+        }
+
         Date dateNow = new Date();
 
         Calendar time = Calendar.getInstance();
@@ -156,9 +180,7 @@ public class MatchController {
 
 
 
-        if (result.hasErrors()) {
-            return "matchUp";
-        }
+
         matchService.saveMatchUp(match);
         return "redirect:/matches/check/" + match.getRound().getId();
     }

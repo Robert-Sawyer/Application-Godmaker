@@ -1,102 +1,91 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<nav class="navbar navbar-expand-lg navbar-blue navbar-dark fixed-top">
+        <nav class="navbar navbar-expand-lg  navbar-blue navbar-dark fixed-top" >
 
-    <div class="container">
+            <div class="container">
 
+            <a class="navbar-brand" href="/ball"><img class="thumbnail img-responsive" src="/resources/logo.png" alt="logo" width="120" height="120" ></a>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
 
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 
-                    <a class="navbar-brand" href="/ball"><img class="thumbnail img-responsive" src="/resources/logo.png" alt="logo" width="120" height="120" ></a>
-                </li>
-            </ul>
+                <span class="navbar-toggler-icon"></span>
 
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                    <a class="navbar-brand js-scroll-trigger" href="/">Zdobądź Boską fortunę!</a>
+            </button>
+<%--            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">--%>
+<%--                <li class="nav-item active">--%>
 
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+<%--                     </li>--%>
+<%--            </ul>--%>
 
-                            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-
-                        <span class="navbar-toggler-icon"></span>
-
-                    </button>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-                <li class="nav-item active">
-
-                    <a class="nav-link" href="/users/details">Twoje dane</a>
-
-                </li>
-            </ul>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="/leagues/all2">Obstaw mecz</a>
-
-                </li>
-            </ul>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="/bets/checkown">Twoje zakłady</a>
-
-                </li>
-            </ul>
-
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="/matches/checkAll">Zobacz wszystkie mecze</a>
-
-                </li>
-            </ul>
-
-            </ul>
-
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <sec:authorize access="!isAuthenticated()">
-                    <form class="form-inline my-2 my-lg-0" method="get" action="/users/add">
-                        <button type="submit" class="btn btn-warning my-2 my-sm-0">Zarejestruj</button>
-                    </form>
-                </sec:authorize>
-            </ul>
-
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-            <li>
-                <sec:authorize access="!isAuthenticated()">
-                    <form class="form-inline my-2 my-lg-0" method="get" action="/login">
-                        <button type="submit" class="btn btn-warning my-2 my-sm-0">Zaloguj</button>
-                    </form>
-                </sec:authorize>
-            </li>
-            </ul>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
-            <li>
-                <sec:authorize access="isAuthenticated()">
-                    <form class="form-inline my-2 my-lg-0" action="<c:url value="/logout"/>" method="post">
-                        <input class="btn btn-danger my-2 my-sm-0" type="submit" value="Wyloguj">
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    </form>
-                </sec:authorize>
-            </li>
-            </ul>
+<%--                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">--%>
+<%--                     --%>
+<%--            </ul>--%>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 margined">
+                    <li class="nav-item active">
+                        <a class="navbar-brand js-scroll-trigger" href="/">Zdobądź Boską fortunę!</a>
 
 
-        </div>
+                    </li>
+                    <li class="nav-item active">
 
-    </div>
+                        <a class="nav-link" href="/users/details">Twoje dane</a>
 
-</nav>
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/leagues/all2">Obstaw mecz</a>
+
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/bets/checkown">Twoje zakłady</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/matches/checkAll">Zobacz wszystkie mecze</a>
+
+                    </li>
+
+                    <sec:authorize access="!isAuthenticated()">
+                        <li class="nav-item">
+
+                            <form class="form-inline my-2 my-lg-0" method="get" action="/login">
+                                <button type="submit" class="btn btn-warning my-2 my-sm-0">Zaloguj</button>
+                            </form>
+                        </li>
+
+                    </sec:authorize>
+
+                    <sec:authorize access="!isAuthenticated()">
+                    <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0" method="get" action="/users/add">
+                                <button type="submit" class="btn btn-warning my-2 my-sm-0">Zarejestruj</button>
+                            </form>
+                    </li>
+
+
+                    </sec:authorize>
+
+                    <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item">
+
+                            <form class="form-inline my-2 my-lg-0" action="<c:url value="/logout"/>" method="post">
+                                <input class="btn btn-danger my-2 my-sm-0" type="submit" value="Wyloguj">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            </form>
+
+                    </li>
+                    </sec:authorize>
+                </ul>
+            </div>
+
+
+
+</div>
+        </nav>

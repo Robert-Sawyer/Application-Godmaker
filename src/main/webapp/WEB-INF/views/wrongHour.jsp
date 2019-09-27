@@ -29,14 +29,14 @@
 
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body text-center">
             <p>Już nie możesz obstawić tego meczu!</p>
         </div>
     </div>
 
     <sec:authorize access="hasRole('ADMIN')">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body text-center">
                 <p>Albo jesteś oszustem adminie!</p>
             </div>
         </div>

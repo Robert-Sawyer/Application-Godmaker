@@ -9,6 +9,7 @@
 
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <html>
@@ -55,7 +56,7 @@
                     <tr>
                         <td>${bet.id}</td>
                         <td>${bet.match.homeTeam} vs. ${bet.match.awayTeam}</td>
-                        <td>${bet.cashDeposit} zł</td>
+                        <td><fmt:formatNumber value="${bet.cashDeposit}" type="currency" currencySymbol="zł"/></td>
 
                         <td>
                         <c:if test="${bet.kindOfBet == 0}">
@@ -71,7 +72,7 @@
                         <c:if test="${not empty bet.match.homeGoals}"><td>${bet.match.homeGoals}:${bet.match.awayGoals}</td></c:if>
                         <c:if test="${empty bet.match.homeGoals}"><td>-:-</td></c:if>
 
-                        <td>${bet.gain} zł</td>
+                        <td><fmt:formatNumber value="${bet.gain}" type="currency" currencySymbol="zł"/></td>
 
 
                     </tr>

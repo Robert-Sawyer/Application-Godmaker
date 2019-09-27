@@ -51,19 +51,19 @@
                     </div>
                     <div class="form-group col-md-3 text-center">
                         <label>Kurs na zwycięstwo gospodarzy:
-                            <form:input path="homeCourse" class="form-control"/>
+                            <form:input path="homeCourse" class="form-control" type="number" step="0.01" min="1"/>
                             <form:errors path="awayCourse" element="div" cssClass="error"/>
                         </label>
                     </div>
                     <div class="form-group col-md-3 text-center">
                         <label>Kurs na remis:
-                            <form:input path="drawCourse" class="form-control"/>
+                            <form:input path="drawCourse" class="form-control" type="number" step="0.01" min="1"/>
                             <form:errors path="drawCourse" element="div" cssClass="error"/>
                         </label>
                     </div>
                     <div class="form-group col-md-3 text-center">
                         <label>Kurs na zwycięstwo gości:
-                            <form:input path="awayCourse" class="form-control"/>
+                            <form:input path="awayCourse" class="form-control" type="number" step="0.01" min="1"/>
                             <form:errors path="awayCourse" element="div" cssClass="error"/>
                         </label>
                     </div>

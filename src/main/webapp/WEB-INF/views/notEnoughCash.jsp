@@ -29,7 +29,7 @@
 
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body text-center">
             <p>Nie masz tyle pieniędzy!</p>
         </div>
     </div>

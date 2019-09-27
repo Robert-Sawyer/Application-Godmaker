@@ -16,6 +16,7 @@
 <body>
 
 <%@include file="/WEB-INF/views/fragments/header.jspf" %>
+
 <br>
 <br>
 <br>
@@ -41,6 +42,7 @@
 <br>
 <br>
 <br>
+
 <img src="/resources/ball.svg" style="cursor:pointer" width="40" height="40" id="ball" class="center">
 
 <script>
