@@ -98,7 +98,7 @@ public class UserController {
         }
 
         userService.saveUser(user);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @GetMapping("/details")

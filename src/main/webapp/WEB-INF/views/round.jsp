@@ -36,7 +36,7 @@
 
                 <form:hidden path="league.id" value="${league.id}"/>
 
-                <div class="row">
+                <div class="d-flex row justify-content-center">
                     <div class="form-group col-md-3 text-center">
                         <label for="numId">Numer kolejki</label>
                         <form:input path="number" type="number" min="1" class="form-control" id="numId"/>

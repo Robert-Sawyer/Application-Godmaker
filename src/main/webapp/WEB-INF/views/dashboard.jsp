@@ -32,10 +32,15 @@
             <br>
             <br>
             <h1>Witaj ${user.username}!</h1>
+            <sec:authorize access="hasRole('USER')">
+
             <br>
+
             <h3>Aktualnie posiadasz <fmt:formatNumber value="${user.credit}" type="currency" currencySymbol="zł"/>.</h3><br>
             <br>
             <p>Trochę mało. Może obstaw jakiś meczyk...</p>
+            </sec:authorize>
+            <br>
             <br>
         </div>
     </div>

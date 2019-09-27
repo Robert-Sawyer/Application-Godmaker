@@ -66,7 +66,7 @@
 
         <div class="card text-center">
             <div class="card-body">
-                <input type="submit" value="Zapisz" class="btn btn-primary">
+                <input type="submit" value="Zarejestruj" class="btn btn-primary">
             </div>
         </div>
     </form:form>

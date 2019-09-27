@@ -35,45 +35,45 @@
 <div class="container">
 
 
-<div class="card mt-4 text-center">
-    <div class="card-body">
-        <table class="table table-hover text-center">
-            <tr>
-                <th>Login</th>
-                <th>Email</th>
-                <th>Saldo</th>
-            </tr>
+    <div class="card mt-4 text-center">
+        <div class="card-body">
+            <table class="table table-hover text-center">
+                <tr>
+                    <th>Login</th>
+                    <th>Email</th>
+                    <sec:authorize access="hasRole('USER')">
+
+                        <th>Saldo</th>
+                    </sec:authorize>
+                </tr>
                 <tr>
                     <td>${user.username}</td>
                     <td>${user.email}</td>
-                    <td><fmt:formatNumber value="${user.credit}" type="currency" currencySymbol="zł"/></td>
+                    <sec:authorize access="hasRole('USER')">
+
+                        <td><fmt:formatNumber value="${user.credit}" type="currency" currencySymbol="zł"/></td>
+                    </sec:authorize>
+
 
                 </tr>
-        </table>
-    </div>
-</div>
-
-
-<br>
-<br>
-
-        <div class="card text-center">
-            <div class="ctr">
-                <br>
-                <br>
-            <p>Aby doładować konto lub odebrać pieniądze skontaktuj się z administratorem strony - wojciech.gladalski@gmail.com</p>
-                <br>
-                <br>
-            </div>
+            </table>
         </div>
+    </div>
 
 
+    <br>
+    <br>
 
-
-
-
-
-
+    <div class="card text-center">
+        <div class="ctr">
+            <br>
+            <br>
+            <p>Aby doładować konto lub odebrać pieniądze skontaktuj się z administratorem strony -
+                wojciech.gladalski@gmail.com</p>
+            <br>
+            <br>
+        </div>
+    </div>
 
 
 </div>

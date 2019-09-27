@@ -1,0 +1,65 @@
+body {
+    background-color: #eee;
+    color: darkblue;
+    background-image: url("../pitch4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.error {
+    color: red;
+}
+
+header {
+    padding: 80px 0 5px;
+    border-bottom: 1px solid #133783;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.navbar-blue {
+    background-color: #3b5998;
+    background-image: linear-gradient(#4e69a2, #3b5998 50%);
+    border-bottom: 1px solid #133783;
+}
+
+.navbar-blue a {
+    color: yellow !important;
+}
+
+.navbar-blue a:hover {
+    background: rgba(0, 0, 0, .1);
+}
+
+.btn-outline-success {
+    color: yellow;
+
+}
+.form-inline {
+    color: yellow;
+}
+
+.ctr {
+    background-color: ivory;
+}
+
+.card-body {
+    background-color: ivory;
+    color: darkblue;
+}
+
+.example11 {
+    text-align: center;
+}
+
+.margined > li{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.center {
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 49%;
+}

@@ -47,7 +47,13 @@
                     <th>Kurs na gości</th>
                     <th>Data meczu</th>
                     <th>Godzina meczu</th>
-                    <th colspan="1"></th>
+
+
+
+                    <sec:authorize access="hasRole('USER')">
+
+                        <th colspan="1"></th>
+                    </sec:authorize>
 
 
                     <sec:authorize access="hasRole('ADMIN')">
@@ -76,12 +82,19 @@
                         <td>${match.awayCourse}</td>
                         <td>${match.startDate}</td>
                         <td>${match.startTime}</td>
-                        <c:if test="${not empty match.homeGoals}">
-                            <td>Nie możesz juz obstawić</td>
-                        </c:if>
-                        <c:if test="${empty match.homeGoals}">
-                            <td><a href="/bets/do/${match.id}">Obstaw!</a></td>
-                        </c:if>
+
+
+
+
+                        <sec:authorize access="hasRole('USER')">
+
+                            <c:if test="${not empty match.homeGoals}">
+                                <td>Nie możesz juz obstawić</td>
+                            </c:if>
+                            <c:if test="${empty match.homeGoals}">
+                                <td><a href="/bets/do/${match.id}">Obstaw!</a></td>
+                            </c:if>
+                        </sec:authorize>
 
 
 
